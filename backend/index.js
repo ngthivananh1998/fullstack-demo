@@ -6,7 +6,13 @@ const path = require('path');
 const app = express();
 const PORT = 3001;
 
-app.use(cors({ origin: 'http://localhost:3000' }));
+app.use(cors({
+  origin: [
+    'http://localhost:3000',
+    'https://frontend-omega-one-34.vercel.app',
+    /\.vercel\.app$/
+  ]
+}));
 app.use(express.json());
 
 // Init SQLite DB
